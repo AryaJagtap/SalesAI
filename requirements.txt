@@ -1,0 +1,10 @@
+streamlit
+SpeechRecognition
+pydub
+sounddevice
+numpy
+scipy
+requests
+pandas
+google-generativeai
+groq
