@@ -40,13 +40,16 @@ The project includes **two fully functional AI engines**:
 
 ## 🧩 Project Structure
 
-SalesAI/
-│
-├── final_gemini.py # SalesAI using Gemini 2.5 Flash
-├── final_groq.py # SalesAI using Groq (LLaMA 3.3)
-├── requirements.txt
-└── README.md
-
+SalesAI/     
+│       
+├── Infosys Agile & Daily Sprint Record.xlsx               
+├── LICENSE        
+├── README.md        
+├── Real_Time_Sales_Intelligence.pdf.pdf          
+├── final_gemini.py # SalesAI using Gemini 2.5 Flash     
+├── final_groq.py # SalesAI using Groq (LLaMA 3.3)       
+└── requirements.txt           
+    
 ---
 
 ## 🤖 AI Engines Used
