@@ -48,8 +48,8 @@ SalesAI/
 ├── Real_Time_Sales_Intelligence.pdf.pdf          
 ├── final_gemini.py # SalesAI using Gemini 2.5 Flash     
 ├── final_groq.py # SalesAI using Groq (LLaMA 3.3)       
-└── requirements.txt           
-    
+├──requirements.txt           
+└── test.wav # test audio to check the upload functionality of the project.
 ---
 
 ## 🤖 AI Engines Used
