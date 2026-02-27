@@ -1,0 +1,43 @@
+# Dependencies
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+.venv/
+
+# Environment
+.env
+backend/.env
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.gemini/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Whisper model cache
+*.pt
+*.bin
+
+# Temp audio files
+temp_chunk.wav
+temp_chunk.webm
+*.webm
+
+# Logs
+*.log

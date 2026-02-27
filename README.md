@@ -1,119 +1,204 @@
-# ⚡ SalesAI – AI-Powered Sales Call Analysis Co-Pilot
+# 🚀 SalesAI V2.0 — Real-Time Sales Intelligence Platform
 
-SalesAI is an intelligent Streamlit-based application that analyzes sales conversations in real time or from uploaded audio files.  
-It uses **state-of-the-art LLMs** to extract **sentiment, intent, key entities**, and provides **actionable next-step suggestions** for sales agents.
+> **Upgraded version** of [SalesAI V1.0](https://github.com/AryaJagtap/SalesAI) — rebuilt from Streamlit to a production-grade React + FastAPI architecture.
 
-The project includes **two fully functional AI engines**:
-- 🔹 **Gemini 2.5 Flash**
-- 🔹 **Groq (LLaMA 3.3 – 70B)**
+SalesAI is a real-time AI-powered sales co-pilot that helps sales professionals close deals faster. It analyzes customer conversations, detects sentiment & intent, extracts key entities, and suggests the best next question — all in real-time.
 
----
-
-## 🚀 Features
-
-### 🎙️ Live Sales Co-Pilot
-- Record customer speech directly from microphone
-- Real-time transcription
-- AI-powered analysis of customer intent & sentiment
-- Smart follow-up suggestions for sales agents
-
-### 📁 Sales Call File Analysis
-- Upload recorded sales calls (WAV format)
-- Automatic silence-based audio chunking
-- Role detection (Customer vs Sales Agent)
-- Structured AI insights per customer message
-
-### 🧠 AI Insights
-- **Sentiment Analysis** (Positive / Neutral / Negative)
-- **Intent Detection** (Buy, Pricing, Inquiry, Complaint, etc.)
-- **Entity Extraction** (Brand, Product, Budget, Topic)
-- **Sales Strategy Suggestions**
-- Built-in **rule-based fallback engine** if API key is missing
-
-### 🎨 Modern SaaS UI
-- Dark theme
-- Chat-style conversation bubbles
-- 3-column analytical dashboard
-- Clean, professional Streamlit layout
+**Works across ALL industries**: Retail, Real Estate, Insurance, Finance, Automotive, Groceries, Services, B2B, and more.
 
 ---
 
-## 🧩 Project Structure
+## ✨ Features
 
-SalesAI/     
-│       
-├── Infosys Agile & Daily Sprint Record.xlsx               
-├── LICENSE        
-├── README.md        
-├── Real_Time_Sales_Intelligence.pdf.pdf          
-├── final_gemini.py # SalesAI using Gemini 2.5 Flash     
-├── final_groq.py # SalesAI using Groq (LLaMA 3.3)       
-├──requirements.txt           
-└── test.wav # test audio to check the upload functionality of the project.
----
-
-## 🤖 AI Engines Used
-
-### 🔹 Gemini Version
-- Model: **gemini-2.5-flash**
-- Provider: Google Generative AI
-- Strengths: Balanced reasoning, structured JSON output
-
-### 🔹 Groq Version
-- Model: **llama-3.3-70b-versatile**
-- Provider: Groq
-- Strengths: Ultra-fast inference, high-quality reasoning
+| Feature | Description |
+|---|---|
+| 🎙️ **Live Co-Pilot** | Record customer audio in real-time and get AI-powered suggestions |
+| 📁 **File Analysis** | Upload recorded sales calls for full transcript + analysis |
+| 🧠 **Sentiment Analysis** | Detect customer mood (Positive / Neutral / Negative) |
+| 🎯 **Intent Detection** | Identify what the customer wants (Buy / Inquire / Compare / Budget / etc.) |
+| 🔍 **Entity Extraction** | Extract brands, products, budgets, locations, services |
+| 💡 **Smart Suggestions** | AI suggests the best next question for the sales agent |
+| 🔄 **Dual AI Engine** | Toggle between Gemini and Groq with automatic fallback |
+| 🌙 **Dark / Light Theme** | Emerald green theme with smooth toggle |
+| 📱 **Responsive Design** | Works on desktop, tablet, and mobile |
+| 📥 **Export Transcripts** | Download conversations as TXT or JSON |
 
 ---
 
-## 🔑 API Keys Required
+## 🛠️ Tech Stack
 
-You need **one API key depending on the version you run**.
+### Frontend
+- **React 18** + Vite (fast dev server & HMR)
+- **Vanilla CSS** (custom design system, no frameworks)
+- **Plus Jakarta Sans** font
 
-### Gemini API Key
-Get from:  
-👉 https://aistudio.google.com/app/apikey
+### Backend
+- **FastAPI** (async Python API)
+- **Groq Whisper API** (primary transcription — whisper-large-v3)
+- **faster-whisper** (local fallback transcription)
+- **Google Gemini 2.5 Flash** (primary AI analysis)
+- **Groq Llama 3.3 70B** (secondary AI analysis)
+- **Pydantic V2** (data validation)
 
-### Groq API Key
-Get from:  
-👉 https://console.groq.com/keys
-
-> API keys are entered securely inside the app sidebar.
+### AI Models
+| Purpose | Primary | Secondary |
+|---|---|---|
+| Transcription | Groq Whisper `whisper-large-v3` | Local `faster-whisper` (tiny) |
+| Analysis | Gemini `gemini-2.5-flash` | Groq `llama-3.3-70b-versatile` |
 
 ---
 
-## 🛠️ Installation & Setup
+## 📂 Project Structure
 
-### 1️⃣ Clone the Repository
+```
+SalesAI/
+├── backend/                  # FastAPI backend
+│   ├── .env.example          # Environment variables template
+│   ├── config.py             # App settings
+│   ├── main.py               # FastAPI entry point
+│   ├── requirements.txt      # Python dependencies
+│   ├── models/
+│   │   └── schemas.py        # Pydantic request/response models
+│   ├── routers/
+│   │   ├── analysis.py       # AI analysis endpoints
+│   │   └── transcription.py  # Audio transcription endpoints
+│   └── services/
+│       ├── ai_engine.py      # Gemini + Groq AI analysis
+│       ├── conversation.py   # Session memory management
+│       └── transcriber.py    # Audio transcription + speaker detection
+├── frontend/                 # React + Vite frontend
+│   ├── src/
+│   │   ├── App.jsx           # Main application
+│   │   ├── index.css         # Design system (green theme)
+│   │   ├── components/
+│   │   │   ├── AnalysisCard.jsx
+│   │   │   ├── ChatBubble.jsx
+│   │   │   ├── EngineToggle.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── SuggestionPanel.jsx
+│   │   │   └── TranscriptDownload.jsx
+│   │   ├── hooks/
+│   │   │   ├── useAudioRecorder.js
+│   │   │   └── useTheme.js
+│   │   └── pages/
+│   │       ├── FileAnalysis.jsx
+│   │       └── LiveCopilot.jsx
+│   └── package.json
+├── .gitignore
+├── LICENSE
+└── README.md
+```
 
-git clone [https://github.com/your-username/SalesAI.git](https://github.com/AryaJagtap/SalesAI.git)       
-cd SalesAI 
+---
 
-### 2️⃣ Create Virtual Environment (Recommended)
+## 🚀 Quick Start
 
+### Prerequisites
+- **Python 3.10+**
+- **Node.js 18+**
+- **Gemini API Key** → [Get from Google AI Studio](https://aistudio.google.com/app/apikey)
+- **Groq API Key** → [Get from Groq Console](https://console.groq.com/keys)
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/AryaJagtap/SalesAI.git
+git checkout Version-2
+cd SalesAI
+```
+
+### 2. Backend Setup
+```bash
+cd backend
 python -m venv venv
-source venv/bin/activate      # Linux / macOS
-venv\Scripts\activate         # Windows
-
-### 3️⃣ Install Dependencies
+venv\Scripts\activate       # Windows
+# source venv/bin/activate  # Mac/Linux
 
 pip install -r requirements.txt
 
-### 4️⃣ Install FFmpeg (Required for Audio Processing)
+# Create .env file
+copy .env.example .env      # Windows
+# cp .env.example .env      # Mac/Linux
 
-Windows:
-https://ffmpeg.org/download.html
-(Add FFmpeg to PATH)
+# Edit .env and add your API keys
+```
 
-Linux
-sudo apt install ffmpeg
+### 3. Frontend Setup
+```bash
+cd frontend
+npm install
+```
 
-macOS
-brew install ffmpeg
+### 4. Run the Application
+```bash
+# Terminal 1 — Backend (from backend/ directory)
+python -m uvicorn main:app --reload --port 8000
 
-### ▶️ Running the Application
-🔹 Run Gemini Version      
-streamlit run final_gemini.py
+# Terminal 2 — Frontend (from frontend/ directory)
+npm run dev
+```
 
-🔹 Run Groq Version       
-streamlit run final_groq.py
+Open **http://localhost:5173** in your browser.
+
+---
+
+## 🌐 Deployment
+
+### Backend → Render (Free Tier)
+1. Push code to GitHub
+2. Go to [render.com](https://render.com) → New Web Service
+3. Connect your GitHub repo
+4. Settings:
+   - **Root Directory**: `backend`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+5. Add environment variables: `GEMINI_API_KEY`, `GROQ_API_KEY`
+
+### Frontend → Vercel (Free Tier)
+1. Go to [vercel.com](https://vercel.com) → New Project
+2. Import your GitHub repo
+3. Settings:
+   - **Root Directory**: `frontend`
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. Add environment variable: `VITE_API_URL` = your Render backend URL (e.g., `https://salesai-backend.onrender.com`)
+
+---
+
+## 🔑 Environment Variables
+
+| Variable | Required | Description |
+|---|---|---|
+| `GEMINI_API_KEY` | Yes | Google Gemini API key |
+| `GROQ_API_KEY` | Yes | Groq API key |
+| `VITE_API_URL` | Frontend only | Backend URL for production |
+
+---
+
+## 📝 API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/transcribe` | Upload audio file for transcription |
+| `POST` | `/api/transcribe/blob` | Transcribe live audio blob |
+| `POST` | `/api/analyze` | Analyze customer text with AI |
+| `POST` | `/api/session/new` | Create conversation session |
+| `DELETE` | `/api/session/{id}` | Clear session history |
+| `GET` | `/health` | Health check |
+
+---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+## 👤 Author
+
+**Arya Jagtap**
+- GitHub: [@AryaJagtap](https://github.com/AryaJagtap)
+
+---
+
+> **SalesAI V2.0** — Built with ❤️ for sales professionals everywhere.

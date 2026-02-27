@@ -1,10 +1,6 @@
-streamlit
-SpeechRecognition
-pydub
-sounddevice
-numpy
-scipy
-requests
-pandas
-google-generativeai
-groq
+# SalesAI V2.0 — Root Requirements
+# Backend requirements are in backend/requirements.txt
+# Install with: pip install -r backend/requirements.txt
+# Frontend uses npm: cd frontend && npm install
+
+-r backend/requirements.txt
