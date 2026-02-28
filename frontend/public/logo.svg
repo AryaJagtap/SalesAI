@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="512" height="512" rx="110" fill="url(#g)"/>
+  <!-- Speech bubble with upward arrow / chart line — representing AI sales intelligence -->
+  <!-- Speech bubble body -->
+  <rect x="100" y="100" width="312" height="220" rx="40" fill="white" opacity="0.95"/>
+  <!-- Speech bubble tail -->
+  <polygon points="160,320 200,320 140,380" fill="white" opacity="0.95"/>
+  <!-- Upward trending line (sales growth) -->
+  <polyline points="160,260 220,220 280,240 360,160" stroke="#059669" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Arrow head at the end of the line -->
+  <polygon points="360,160 330,175 345,190" fill="#059669"/>
+  <!-- Small dot accents on the line -->
+  <circle cx="160" cy="260" r="12" fill="#059669"/>
+  <circle cx="220" cy="220" r="12" fill="#10b981"/>
+  <circle cx="280" cy="240" r="12" fill="#10b981"/>
+</svg>

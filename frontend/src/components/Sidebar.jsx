@@ -3,7 +3,9 @@ export default function Sidebar({ activePage, onNavigate, theme, onToggleTheme, 
         <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
             {/* Brand */}
             <div className="sidebar-brand">
-                <div className="sidebar-brand-icon">⚡</div>
+                <div className="sidebar-brand-icon">
+                    <img src="/logo.svg" alt="SalesAI" width="28" height="28" />
+                </div>
                 <div>
                     <h1>SalesAI</h1>
                     <span className="version-badge">V2.0</span>
