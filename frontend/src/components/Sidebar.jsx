@@ -4,10 +4,16 @@ export default function Sidebar({ activePage, onNavigate, theme, onToggleTheme, 
             {/* Brand */}
             <div className="sidebar-brand">
                 <div className="sidebar-brand-icon">
-                    <img src="/logo.svg" alt="SalesAI" width="28" height="28" />
+                    <img
+                        src={theme === 'dark' ? '/logo-dark.png' : '/logo-light.png'}
+                        alt="Sales.Ai"
+                        width="32"
+                        height="32"
+                        style={{ borderRadius: '6px' }}
+                    />
                 </div>
                 <div>
-                    <h1>SalesAI</h1>
+                    <h1>Sales.Ai</h1>
                     <span className="version-badge">V2.0</span>
                 </div>
             </div>
@@ -34,7 +40,7 @@ export default function Sidebar({ activePage, onNavigate, theme, onToggleTheme, 
             {/* Footer */}
             <div className="sidebar-footer">
                 <div className="sidebar-status">
-                    <span className="status-dot active"></span>
+                    <span className="status-dot active" />
                     AI Engine Active
                 </div>
 

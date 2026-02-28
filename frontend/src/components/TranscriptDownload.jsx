@@ -5,13 +5,13 @@ export default function TranscriptDownload({ segments, format = 'txt' }) {
         const lines = segments.map(seg =>
             `[${seg.timestamp || '00:00'}] ${seg.speaker}: "${seg.text}"`
         );
-        const content = `SalesAI V2.0 — Transcript\n${'='.repeat(40)}\n\n${lines.join('\n\n')}`;
+        const content = `Sales.Ai — Transcript\n${'='.repeat(40)}\n\n${lines.join('\n\n')}`;
         triggerDownload(content, 'transcript.txt', 'text/plain');
     };
 
     const downloadJson = () => {
         const data = {
-            generated_by: 'SalesAI V2.0',
+            generated_by: 'Sales.Ai',
             timestamp: new Date().toISOString(),
             segments: segments,
         };
